@@ -1,0 +1,24 @@
+<div class="login_container">
+  <div class="w-full max-w-lg ">
+      <%= form_with :class => "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4", model: @qoute, url: qoutes_new_path, locale: true do |f| %>
+      <div class="mb-4">
+        <%= f.label :name, :class => "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.text_field :name,  :class => "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'name' %>
+          <% @qoute.errors.full_messages_for(:name).each do |message| %>
+        <div style="color:red;"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :description, :class => "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.text_field :description,  :class => "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'description' %>
+          <% @qoute.errors.full_messages_for(:description).each do |message| %>
+        <div style="color:red;"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="flex items-center justify-between">
+          <%= link_to 'Back', '/', :class => "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+          <%= f.submit "Submit", :class => "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    <% end %>
+  </div>
+</div>
