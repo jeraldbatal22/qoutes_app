@@ -1,24 +1,43 @@
-<div class="login_container">
-  <div class="w-full max-w-lg ">
-      <%= form_with :class => "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4", model: @qoute, url: qoutes_new_path, locale: true do |f| %>
-      <div class="mb-4">
-        <%= f.label :name, :class => "block text-gray-700 text-sm font-bold mb-2" %>
-        <%= f.text_field :name,  :class => "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'name' %>
+<div class="table_crud">
+
+  <%= form_with scope: :qoute, :class => 'w-full max-w-sm',  url: qoute_create_path , locale: true do |f| %>
+    <div class="md:flex md:items-center mb-6">
+      <div class="md:w-1/3">
+        <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+          Author
+        </label>
+      </div>
+      <div class="md:w-2/3">
+        <%= f.text_field :name, :class => 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500', :placeholder => 'Add author here' %>
           <% @qoute.errors.full_messages_for(:name).each do |message| %>
-        <div style="color:red;"><%= message %></div>
-        <% end %>
+            <div style="color:red;"><%= message %></div>
+          <% end %>
       </div>
-      <div class="mb-4">
-        <%= f.label :description, :class => "block text-gray-700 text-sm font-bold mb-2" %>
-        <%= f.text_field :description,  :class => "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'description' %>
+    </div>
+    <div class="md:flex md:items-center mb-6">
+      <div class="md:w-1/3">
+        <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+          Qoutes
+        </label>
+      </div>
+      <div class="md:w-2/3">
+        <%= f.text_area :description, :class => 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 ', :placeholder => 'Add your qoutes here' %>
           <% @qoute.errors.full_messages_for(:description).each do |message| %>
-        <div style="color:red;"><%= message %></div>
+            <div style="color:red;"><%= message %></div>
         <% end %>
       </div>
-      <div class="flex items-center justify-between">
-          <%= link_to 'Back', '/', :class => "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-          <%= f.submit "Submit", :class => "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="md:flex md:items-center">
+
+    <div class="md:w-1/3"></div>
+      <div class="md:w-3/3 flex">
+        <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+          <%= link_to 'Back', '/qoutes' %>
+        </button>
+          <%= f.submit 'Save Qoutes', :class => 'shadow bg-purple-500 ml-12 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded' %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+
 </div>

@@ -1,0 +1,62 @@
+<%= form_with scope: :article, url: article_create_path , locale: true do |f| %>
+
+  <div>
+    <% if @article.errors.any?%>
+      <% @article.errors.full_messages.each do |message|%>
+        <p><%=message%></p>
+      <%end%>
+    <%end%>
+  </div>
+  
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+   <div>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </div>
+
+  <div>
+   <%= link_to 'Back', '/articles' %>
+    <%= f.submit %>
+  </div>
+
+
+  
+<% end %>
+
+
+<div class="table_crud">
+  <i class="fas fa-plus-circle"><%= link_to 'Create', '/articles/new' %></i>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Body</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.id %></td>
+          <td><%= article.name %></td>
+          <td><%= article.body %></td>
+          <td><%= article.created_at.to_date %></td>
+          <td><%= time_ago_in_words(article.updated_at) %></td>
+          <td>
+            <i class="fas fa-eye"><%= link_to "Show", "/articles/show/#{article.id}"%></i>
+            <i class="fas fa-edit"> <%= link_to 'Edit', "/articles/edit/#{article.id}" %></i>
+            <i class="fas fa-trash"><%= link_to 'Delete', "/articles/#{article.id}", method: :delete, data: { confirm: "are you sure?" } %></i>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

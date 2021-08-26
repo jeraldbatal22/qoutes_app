@@ -1,0 +1,36 @@
+
+<div class="table_crud">
+  <section class="container mt-8 px-6 py-4 mx-auto">
+      <div style="position: fixed; top:0; display:flex; justify-content:space-evenly; width:70%;" class="nav">
+      <h1 class="font-serif">Inspirational Qoutes</h1>
+      <button class="bg-blue-500 mr-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"> <%= link_to '/qoutes' do %> <i class="fas fa-home"> Back to home</i> <% end %></button>
+      <button class="bg-blue-500 mr-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"><%= link_to '/qoutes/new' do %><i class="fas fa-plus-circle"> Add Qoutes</i><% end %></button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"> <%= link_to '/qoutes/qoutes' do %> <i class="fas fa-random"> Random Qoutes</i><% end %></button>
+    </div>
+
+    <div class="grid gap-6 mb-8 md:grid-cols-1 lg:grid-cols-3">
+      <% @qoutes.each do |qoute| %>
+      
+        <div class="flex items-center p-4  rounded-lg shadow-sm dark:bg-gray-800">
+            <div id="body" class="flex flex-col ml-5">
+              <h4 id="name" class="text-2xl color-danger font-semibold text-white">
+                <%= qoute.name %>
+                  <%=link_to remove_favorites_path(qoute.id) do %>
+                    <i class="fas <%= qoute.favorites == true ? 'true' : 'false'%> fa-heart text-red font-bold py-2 px-4 rounded-full" > </i>
+                <% end %>
+              </h4>
+              <h4 id="job" class="text-base text-white mt-2"><%= qoute.description %></p>
+              <p id="job" class="text-white mt-2">Updated <%= time_ago_in_words(qoute.updated_at) %> ago.</p>
+              <div class="flex mt-5">
+                <i class="fas fa-eye m-5 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"> <%= link_to " Show", "/qoutes/show/#{qoute.id}"%></i>
+                <i class="fas fa-edit m-5 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"> <%= link_to ' Edit', "/qoutes/edit/#{qoute.id}" %></i>
+                <i class="fas fa-trash m-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"> <%= link_to ' Delete', "/qoutes/#{qoute.id}", method: :delete, data: { confirm: "are you sure?" } %></i>
+              </div>
+            </div>
+
+        </div>
+      <% end %>
+
+    </div>
+  </section>
+</div>

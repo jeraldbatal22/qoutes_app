@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>QoutesApp</title>
+    <title>Qoutes App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/b0e17e7f5a.js" crossorigin="anonymous"></script>
+    <%= favicon_link_tag asset_path('favicon.ico')%>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+   </head>
 
-  <body>
-    <%= yield %>
+  <body >
+    <div class="containers font-mono">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,17 @@
+<div class="table_crud">
+  <section class="container mt-8 px-6 py-4 mx-auto">
+
+    <div id="body" class="flex flex-col ml-5" style="justify-content:center; text-align:center; align-items:center;">
+      <h4 id="name" class="text-5xl color-danger font-semibold text-white"><%= @qoute.name %></h4>
+      <h4 id="job" class=" text-3xl text-base text-white mt-2" style="width:50%;"><%= @qoute.description %></h4>
+      <p id="job" class="text-white mt-2">Created At <%= @qoute.created_at.to_date %></p>
+      <p id="job" class="text-white mt-2">Updated <%= time_ago_in_words(@qoute.updated_at) %> ago.</p>
+      <div class="flex mt-5" style="justify-content:space-evenly; text-align:center; align-items:center;">
+        <i class=" m-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full fas fa-home"> <%= link_to " Back", "/qoutes"%></i>
+        <i class="fas fa-edit m-5 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"> <%= link_to ' Edit', "/qoutes/edit/#{@qoute.id}" %></i>
+        <i class="fas fa-trash m-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"> <%= link_to ' Delete', "/qoutes/#{@qoute.id}", method: :delete, data: { confirm: "are you sure?" } %></i>
+      </div>
+    </div>
+
+  </section>
+</div>
