@@ -15,7 +15,7 @@
               <h4 id="name" class="text-2xl color-danger font-semibold text-white">
                 <%= qoute.name %>
                   <%=link_to "/qoutes/save/favorites/#{qoute.id}/#{qoute.favorites ? '1' : '0'}" do %>
-                    <i class="fas <%= qoute.favorites == true ? 'true' : 'false'%> fa-heart text-red font-bold py-2 px-4 rounded-full" > </i>
+                    <i class="fas <%= qoute.favorites ? 'true' : 'false'%> fa-heart text-red font-bold py-2 px-4 rounded-full" > </i>
                   <% end %>
               </h4>
               <h4 id="job" class="text-base text-white mt-2"><%= qoute.description %></p>

@@ -3,7 +3,7 @@ class CreateQoutes < ActiveRecord::Migration[6.1]
     create_table :qoutes do |t|
       t.string :name
       t.text :description
-      t.text :favorites, default: false
+      t.boolean :favorites, default: false
       t.timestamps
     end
   end

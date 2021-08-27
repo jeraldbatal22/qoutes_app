@@ -45,7 +45,6 @@ class QoutesController < ApplicationController
   def add_favorites
     @qoute = Qoute.find(params[:id])
     favorites = params[:favorites] == '1' ? false : true
-    puts favorites
     @qoute.update_attribute(:favorites, favorites)
     redirect_to '/qoutes'
   end

@@ -11,5 +11,4 @@ Rails.application.routes.draw do
   get '/qoutes/save/favorites/:id/:favorites' => 'qoutes#add_favorites', as: 'save_favorites'
   get '/qoutes/remove/favorites/:id/' => 'qoutes#remove_favorites', as: 'remove_favorites'
   delete '/qoutes/:id' => 'qoutes#delete'
-  
 end
